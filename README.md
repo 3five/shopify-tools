@@ -23,6 +23,40 @@ Collections
 
 ## Basic Usage
 
+### Low-Level Client
+
+```
+// lib/services/shopify.js
+
+import {
+  ShopifyClient, 
+  ShopifyPrivateSession 
+} from 'shopify-tools'
+
+const session = new ShopifyPrivateSession({
+  host: process.env.SHOPIFY_HOST,
+  apiKey: process.env.SHOPIFY_API_KEY,
+  password: process.env.SHOPIFY_API_PASS,
+  sharedSecret: process.env.SHOPIFY_API_SECRET,
+})
+
+let opts = { session };
+const client = new ShopifyClient(opts);
+
+
+client.get('products').then((resp)=> {
+  // resp.products === []:Product
+})
+
+client.put('orders/134943834', { ...data }).then((resp)=> {
+  // resp.product === data
+})
+
+```
+
+
+### Resources
+
 ```
 // lib/services/shopify.js
 
