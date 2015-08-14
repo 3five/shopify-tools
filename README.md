@@ -16,7 +16,7 @@ Collections
 - Asset
 - CustomerAddress
 - Policy
-- Product
+- Product Variant
 - Province
 - Refund
 - Transaction
