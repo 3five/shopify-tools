@@ -60,7 +60,7 @@
 
 	exports.ShopifyResources = _interopRequire(_resources);
 
-	var _middleware = __webpack_require__(39);
+	var _middleware = __webpack_require__(42);
 
 	exports.ShopifyAuthMiddleware = _interopRequire(_middleware);
 
@@ -412,169 +412,169 @@
 
 	exports.ApplicationCharges = _applicationCharges2['default'];
 
-	var _blogs = __webpack_require__(11);
+	var _blogs = __webpack_require__(13);
 
 	var _blogs2 = _interopRequireDefault(_blogs);
 
 	exports.Blogs = _blogs2['default'];
 
-	var _carrierServices = __webpack_require__(12);
+	var _carrierServices = __webpack_require__(14);
 
 	var _carrierServices2 = _interopRequireDefault(_carrierServices);
 
 	exports.CarrierServices = _carrierServices2['default'];
 
-	var _checkouts = __webpack_require__(13);
+	var _checkouts = __webpack_require__(15);
 
 	var _checkouts2 = _interopRequireDefault(_checkouts);
 
 	exports.Checkouts = _checkouts2['default'];
 
-	var _collects = __webpack_require__(15);
+	var _collects = __webpack_require__(17);
 
 	var _collects2 = _interopRequireDefault(_collects);
 
 	exports.Collects = _collects2['default'];
 
-	var _comments = __webpack_require__(16);
+	var _comments = __webpack_require__(18);
 
 	var _comments2 = _interopRequireDefault(_comments);
 
 	exports.Comments = _comments2['default'];
 
-	var _countries = __webpack_require__(17);
+	var _countries = __webpack_require__(19);
 
 	var _countries2 = _interopRequireDefault(_countries);
 
 	exports.Countries = _countries2['default'];
 
-	var _customCollections = __webpack_require__(18);
+	var _customCollections = __webpack_require__(20);
 
 	var _customCollections2 = _interopRequireDefault(_customCollections);
 
 	exports.CustomCollections = _customCollections2['default'];
 
-	var _customerSavedSearches = __webpack_require__(19);
+	var _customerSavedSearches = __webpack_require__(21);
 
 	var _customerSavedSearches2 = _interopRequireDefault(_customerSavedSearches);
 
 	exports.CustomerSavedSearches = _customerSavedSearches2['default'];
 
-	var _customers = __webpack_require__(20);
+	var _customers = __webpack_require__(22);
 
 	var _customers2 = _interopRequireDefault(_customers);
 
 	exports.Customers = _customers2['default'];
 
-	var _discounts = __webpack_require__(21);
+	var _discounts = __webpack_require__(23);
 
 	var _discounts2 = _interopRequireDefault(_discounts);
 
 	exports.Discounts = _discounts2['default'];
 
-	var _events = __webpack_require__(22);
+	var _events = __webpack_require__(24);
 
 	var _events2 = _interopRequireDefault(_events);
 
 	exports.Events = _events2['default'];
 
-	var _fulfillmentServices = __webpack_require__(23);
+	var _fulfillmentServices = __webpack_require__(25);
 
 	var _fulfillmentServices2 = _interopRequireDefault(_fulfillmentServices);
 
 	exports.FulfillmentServices = _fulfillmentServices2['default'];
 
-	var _giftCards = __webpack_require__(24);
+	var _giftCards = __webpack_require__(26);
 
 	var _giftCards2 = _interopRequireDefault(_giftCards);
 
 	exports.GiftCards = _giftCards2['default'];
 
-	var _images = __webpack_require__(44);
+	var _images = __webpack_require__(27);
 
 	var _images2 = _interopRequireDefault(_images);
 
 	exports.Images = _images2['default'];
 
-	var _locations = __webpack_require__(25);
+	var _locations = __webpack_require__(28);
 
 	var _locations2 = _interopRequireDefault(_locations);
 
 	exports.Locations = _locations2['default'];
 
-	var _metafields = __webpack_require__(26);
+	var _metafields = __webpack_require__(29);
 
 	var _metafields2 = _interopRequireDefault(_metafields);
 
 	exports.Metafields = _metafields2['default'];
 
-	var _orderRisks = __webpack_require__(27);
+	var _orderRisks = __webpack_require__(30);
 
 	var _orderRisks2 = _interopRequireDefault(_orderRisks);
 
 	exports.OrderRisks = _orderRisks2['default'];
 
-	var _orders = __webpack_require__(28);
+	var _orders = __webpack_require__(31);
 
 	var _orders2 = _interopRequireDefault(_orders);
 
 	exports.Orders = _orders2['default'];
 
-	var _pages = __webpack_require__(29);
+	var _pages = __webpack_require__(32);
 
 	var _pages2 = _interopRequireDefault(_pages);
 
 	exports.Pages = _pages2['default'];
 
-	var _policies = __webpack_require__(30);
+	var _policies = __webpack_require__(33);
 
 	var _policies2 = _interopRequireDefault(_policies);
 
 	exports.Policies = _policies2['default'];
 
-	var _products = __webpack_require__(31);
+	var _products = __webpack_require__(34);
 
 	var _products2 = _interopRequireDefault(_products);
 
 	exports.Products = _products2['default'];
 
-	var _recurringApplicationCharges = __webpack_require__(32);
+	var _recurringApplicationCharges = __webpack_require__(35);
 
 	var _recurringApplicationCharges2 = _interopRequireDefault(_recurringApplicationCharges);
 
 	exports.RecurringApplicationCharges = _recurringApplicationCharges2['default'];
 
-	var _redirects = __webpack_require__(33);
+	var _redirects = __webpack_require__(36);
 
 	var _redirects2 = _interopRequireDefault(_redirects);
 
 	exports.Redirects = _redirects2['default'];
 
-	var _shop = __webpack_require__(34);
+	var _shop = __webpack_require__(37);
 
 	var _shop2 = _interopRequireDefault(_shop);
 
 	exports.Shop = _shop2['default'];
 
-	var _smartCollections = __webpack_require__(35);
+	var _smartCollections = __webpack_require__(38);
 
 	var _smartCollections2 = _interopRequireDefault(_smartCollections);
 
 	exports.SmartCollections = _smartCollections2['default'];
 
-	var _themes = __webpack_require__(36);
+	var _themes = __webpack_require__(39);
 
 	var _themes2 = _interopRequireDefault(_themes);
 
 	exports.Themes = _themes2['default'];
 
-	var _users = __webpack_require__(37);
+	var _users = __webpack_require__(40);
 
 	var _users2 = _interopRequireDefault(_users);
 
 	exports.Users = _users2['default'];
 
-	var _webhooks = __webpack_require__(38);
+	var _webhooks = __webpack_require__(41);
 
 	var _webhooks2 = _interopRequireDefault(_webhooks);
 
@@ -639,11 +639,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _inflection = __webpack_require__(42);
+	var _inflection = __webpack_require__(11);
 
 	var _inflection2 = _interopRequireDefault(_inflection);
 
-	var _instance = __webpack_require__(43);
+	var _instance = __webpack_require__(12);
 
 	var _instance2 = _interopRequireDefault(_instance);
 
@@ -829,6 +829,151 @@
 
 /***/ },
 /* 11 */
+/***/ function(module, exports) {
+
+	module.exports = require("inflection");
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var _index = __webpack_require__(8);
+
+	var resources = _interopRequireWildcard(_index);
+
+	var _lodash = __webpack_require__(6);
+
+	var Instance = (function () {
+	  function Instance(data, parent) {
+	    _classCallCheck(this, Instance);
+
+	    this.attrs = data;
+	    this.parent = parent;
+	    this.client = parent.client;
+	    this._buildSubResources();
+	  }
+
+	  _createClass(Instance, [{
+	    key: '_getProperName',
+	    value: function _getProperName(resource) {
+	      return (0, _lodash.capitalize)((0, _lodash.camelCase)(resource));
+	    }
+	  }, {
+	    key: '_buildSubResources',
+	    value: function _buildSubResources() {
+	      if (this.parent.subResources && !this.isNew()) {
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
+
+	        try {
+	          for (var _iterator = this.parent.subResources[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var resource = _step.value;
+
+	            this[this._getProperName(resource)] = this._buildResource(resource);
+	          }
+	        } catch (err) {
+	          _didIteratorError = true;
+	          _iteratorError = err;
+	        } finally {
+	          try {
+	            if (!_iteratorNormalCompletion && _iterator['return']) {
+	              _iterator['return']();
+	            }
+	          } finally {
+	            if (_didIteratorError) {
+	              throw _iteratorError;
+	            }
+	          }
+	        }
+	      }
+	    }
+	  }, {
+	    key: '_buildResource',
+	    value: function _buildResource(resource) {
+	      var Resource = resources[this._getProperName(resource)];
+	      var opts = this.parent.opts;
+	      opts.resourcePrefix = this.parent.resourceName + '/' + this.get('id');
+	      return new Resource(opts);
+	    }
+	  }, {
+	    key: '_mergeAttrs',
+	    value: function _mergeAttrs(resource) {
+	      this.attrs = (0, _lodash.merge)(this.attrs, resource);
+	      return this;
+	    }
+	  }, {
+	    key: 'get',
+	    value: function get(key) {
+	      return this.attrs[key] || undefined;
+	    }
+	  }, {
+	    key: 'set',
+	    value: function set(key, value) {
+	      return this.attrs[key] = value;
+	    }
+	  }, {
+	    key: 'reload',
+	    value: function reload() {
+	      return this.load();
+	    }
+	  }, {
+	    key: 'load',
+	    value: function load() {
+	      var id = !this.parent.singular ? this.get('id') : null;
+	      return this.parent.findOne(id, { bare: true }).then(this._mergeAttrs.bind(this));
+	    }
+	  }, {
+	    key: 'isNew',
+	    value: function isNew() {
+	      return !this.get('id');
+	    }
+	  }, {
+	    key: 'save',
+	    value: function save() {
+	      if (this.isNew()) {
+	        return this.parent.create(this.attrs, { bare: true }).then(this._mergeAttrs.bind(this));
+	      } else {
+	        return this.parent.update(null, this.attrs, { bare: true }).then(this._mergeAttrs.bind(this));
+	      }
+	    }
+	  }, {
+	    key: 'remove',
+	    value: function remove() {
+	      return this.parent.remove(this.get('id'));
+	    }
+	  }, {
+	    key: 'toObject',
+	    value: function toObject() {
+	      return this.attrs;
+	    }
+	  }, {
+	    key: 'toJSON',
+	    value: function toJSON() {
+	      return this.toObject();
+	    }
+	  }]);
+
+	  return Instance;
+	})();
+
+	exports['default'] = Instance;
+	module.exports = exports['default'];
+
+/***/ },
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -858,6 +1003,7 @@
 	    _get(Object.getPrototypeOf(BlogResource.prototype), 'constructor', this).apply(this, arguments);
 
 	    this.resourceName = 'blogs';
+	    this.subResources = ['articles'];
 	  }
 
 	  return BlogResource;
@@ -867,7 +1013,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -906,7 +1052,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -929,7 +1075,7 @@
 
 	var _base2 = _interopRequireDefault(_base);
 
-	var _errors = __webpack_require__(14);
+	var _errors = __webpack_require__(16);
 
 	var CheckoutResource = (function (_Resource) {
 	  _inherits(CheckoutResource, _Resource);
@@ -971,7 +1117,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1023,7 +1169,7 @@
 	exports.ArgumentError = ArgumentError;
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1062,7 +1208,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1085,7 +1231,7 @@
 
 	var _base2 = _interopRequireDefault(_base);
 
-	var _errors = __webpack_require__(14);
+	var _errors = __webpack_require__(16);
 
 	var CommentsResource = (function (_Resource) {
 	  _inherits(CommentsResource, _Resource);
@@ -1117,7 +1263,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1156,7 +1302,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1196,7 +1342,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1235,7 +1381,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1274,7 +1420,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1313,7 +1459,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1352,7 +1498,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1391,7 +1537,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1430,7 +1576,46 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 25 */
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _base = __webpack_require__(10);
+
+	var _base2 = _interopRequireDefault(_base);
+
+	var ImagesResource = (function (_Resource) {
+	  _inherits(ImagesResource, _Resource);
+
+	  function ImagesResource() {
+	    _classCallCheck(this, ImagesResource);
+
+	    _get(Object.getPrototypeOf(ImagesResource.prototype), 'constructor', this).apply(this, arguments);
+
+	    this.resourceName = 'images';
+	  }
+
+	  return ImagesResource;
+	})(_base2['default']);
+
+	exports['default'] = ImagesResource;
+	module.exports = exports['default'];
+
+/***/ },
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1469,7 +1654,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1508,7 +1693,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 27 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1547,7 +1732,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 28 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1586,7 +1771,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 29 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1625,7 +1810,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 30 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1664,7 +1849,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 31 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1704,7 +1889,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 32 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1743,7 +1928,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 33 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1782,7 +1967,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 34 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1831,7 +2016,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 35 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1871,7 +2056,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1910,7 +2095,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1949,7 +2134,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1988,7 +2173,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2003,11 +2188,11 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _crypto = __webpack_require__(40);
+	var _crypto = __webpack_require__(43);
 
 	var _crypto2 = _interopRequireDefault(_crypto);
 
-	var _path = __webpack_require__(41);
+	var _path = __webpack_require__(44);
 
 	var _path2 = _interopRequireDefault(_path);
 
@@ -2199,200 +2384,16 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 40 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = require("crypto");
 
 /***/ },
-/* 41 */
+/* 44 */
 /***/ function(module, exports) {
 
 	module.exports = require("path");
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	module.exports = require("inflection");
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var _index = __webpack_require__(8);
-
-	var resources = _interopRequireWildcard(_index);
-
-	var _lodash = __webpack_require__(6);
-
-	var Instance = (function () {
-	  function Instance(data, parent) {
-	    _classCallCheck(this, Instance);
-
-	    this.attrs = data;
-	    this.parent = parent;
-	    this.client = parent.client;
-	    this._buildSubResources();
-	  }
-
-	  _createClass(Instance, [{
-	    key: '_getProperName',
-	    value: function _getProperName(resource) {
-	      return (0, _lodash.capitalize)((0, _lodash.camelCase)(resource));
-	    }
-	  }, {
-	    key: '_buildSubResources',
-	    value: function _buildSubResources() {
-	      if (this.parent.subResources && !this.isNew()) {
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
-
-	        try {
-	          for (var _iterator = this.parent.subResources[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var resource = _step.value;
-
-	            this[this._getProperName(resource)] = this._buildResource(resource);
-	          }
-	        } catch (err) {
-	          _didIteratorError = true;
-	          _iteratorError = err;
-	        } finally {
-	          try {
-	            if (!_iteratorNormalCompletion && _iterator['return']) {
-	              _iterator['return']();
-	            }
-	          } finally {
-	            if (_didIteratorError) {
-	              throw _iteratorError;
-	            }
-	          }
-	        }
-	      }
-	    }
-	  }, {
-	    key: '_buildResource',
-	    value: function _buildResource(resource) {
-	      var Resource = resources[this._getProperName(resource)];
-	      var opts = this.parent.opts;
-	      opts.resourcePrefix = this.parent.resourceName + '/' + this.get('id');
-	      return new Resource(opts);
-	    }
-	  }, {
-	    key: '_mergeAttrs',
-	    value: function _mergeAttrs(resource) {
-	      this.attrs = (0, _lodash.merge)(this.attrs, resource);
-	      return this;
-	    }
-	  }, {
-	    key: 'get',
-	    value: function get(key) {
-	      return this.attrs[key] || undefined;
-	    }
-	  }, {
-	    key: 'set',
-	    value: function set(key, value) {
-	      return this.attrs[key] = value;
-	    }
-	  }, {
-	    key: 'reload',
-	    value: function reload() {
-	      return this.load();
-	    }
-	  }, {
-	    key: 'load',
-	    value: function load() {
-	      var id = !this.parent.singular ? this.get('id') : null;
-	      return this.parent.findOne(id, { bare: true }).then(this._mergeAttrs.bind(this));
-	    }
-	  }, {
-	    key: 'isNew',
-	    value: function isNew() {
-	      return !this.get('id');
-	    }
-	  }, {
-	    key: 'save',
-	    value: function save() {
-	      if (this.isNew()) {
-	        return this.parent.create(this.attrs, { bare: true }).then(this._mergeAttrs.bind(this));
-	      } else {
-	        return this.parent.update(null, this.attrs, { bare: true }).then(this._mergeAttrs.bind(this));
-	      }
-	    }
-	  }, {
-	    key: 'remove',
-	    value: function remove() {
-	      return this.parent.remove(this.get('id'));
-	    }
-	  }, {
-	    key: 'toObject',
-	    value: function toObject() {
-	      return this.attrs;
-	    }
-	  }, {
-	    key: 'toJSON',
-	    value: function toJSON() {
-	      return this.toObject();
-	    }
-	  }]);
-
-	  return Instance;
-	})();
-
-	exports['default'] = Instance;
-	module.exports = exports['default'];
-
-/***/ },
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _base = __webpack_require__(10);
-
-	var _base2 = _interopRequireDefault(_base);
-
-	var ImagesResource = (function (_Resource) {
-	  _inherits(ImagesResource, _Resource);
-
-	  function ImagesResource() {
-	    _classCallCheck(this, ImagesResource);
-
-	    _get(Object.getPrototypeOf(ImagesResource.prototype), 'constructor', this).apply(this, arguments);
-
-	    this.resourceName = 'images';
-	  }
-
-	  return ImagesResource;
-	})(_base2['default']);
-
-	exports['default'] = ImagesResource;
-	module.exports = exports['default'];
 
 /***/ }
 /******/ ])));
