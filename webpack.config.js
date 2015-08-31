@@ -4,14 +4,19 @@ module.exports = {
     output: {
         path: __dirname + "/dist",
         filename: "bundle.js",
-        libraryTarget: 'commonjs'
+        libraryTarget: 'commonjs',
     },
     externals: [
-      { 
+      {
         inflection: true,
         superagent: true,
         crypto: true,
-        url: true
+        url: true,
+        express: true,
+        querystring: true,
+        lodash: true,
+        path: true,
+        uuid: true,
       }
     ],
     node: {

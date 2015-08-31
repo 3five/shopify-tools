@@ -1,6 +1,6 @@
 import url              from 'url'
+import uuid             from 'uuid'
 import agent            from 'superagent'
-import crypto           from 'crypto'
 import { OAuthSession } from './session'
 
 export default class ShopifyClient {
@@ -36,16 +36,37 @@ export default class ShopifyClient {
     return this.makeRequest(request);
   }
 
-  buildUrl(resource) {
-    let pathname = `/admin/${resource}.json`
-    let reqUrlFormat = { 
-      protocol: 'https', 
-      host: this.session.host,
+  buildInstallUrl(redirectUri) {
+    let nonce = uuid.v4()
+    let uri = url.format({
+      protocol: 'https',
+      host: this.session.shop,
+      pathname: '/admin/oauth/authorize',
+      query: {
+        client_id: this.session.apiKey,
+        scope: this.session.scopes.join(','),
+        redirect_uri: url.format({
+          protocol: 'https',
+          host: this.session.host,
+          pathname: redirectUri
+        }),
+        state: nonce
+      }
+    })
+    return { uri, nonce }
+  }
+
+  buildUrl(resource, opts) {
+    let noSuffix = opts && opts.noSuffix;
+    let pathname = `/admin/${resource}${noSuffix ? '' : '.json'}`
+    let reqUrlFormat = {
+      protocol: 'https',
+      host: this.session.shop,
       pathname: pathname
     };
 
     if (!this.oauth) {
-      reqUrlFormat.auth = `${this.session.key}:${this.session.password}`;
+      reqUrlFormat.auth = `${this.session.apiKey}:${this.session.secret}`;
     }
 
     return url.format(reqUrlFormat);
@@ -57,7 +78,7 @@ export default class ShopifyClient {
     if (opts && opts.params) {
       request.query(opts.params)
     }
-    
+
     if (opts && opts.data) {
       request.send(opts.data)
     }
@@ -73,30 +94,28 @@ export default class ShopifyClient {
     return request
   }
 
+  getAccessToken(code) {
+    let url = this.buildUrl('oauth/access_token');
+    console.log(url)
+    let request = agent.post(url)
+    request.query({
+      client_id: this.session.apiKey,
+      client_secret: this.session.secret,
+      code: code
+    })
+    return this.makeRequest(request)
+  }
+
   makeRequest(request) {
     return new Promise((resolve, reject)=> {
       request.end((err, res)=> {
-        let verified = false;
         if (err) {
           reject(res.body || err);
         } else {
-          verified = this.verifyResponse(res)
-          if (verified) {
-            resolve(res.body);
-          } else {
-            reject('Shopify response is not authentic.');
-          }
+          resolve(res.body);
         }
       });
     })
-  }
-
-  verifyResponse(res) {
-    if (!this.oauth) {
-      return true;
-    }
-
-    return false;
   }
 
 }

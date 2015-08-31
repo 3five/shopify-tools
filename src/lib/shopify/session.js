@@ -1,22 +1,25 @@
+import { merge } from 'lodash'
 
 export class PrivateSession {
   constructor(opts) {
     this.host = opts.host;
-    this.key = opts.apiKey;
-    this.password = opts.password;
+    this.apiKey = opts.apiKey;
+    this.secret = opts.secret;
+    this.shop = opts.shop;
   }
 }
 
 export class OAuthSession {
   constructor(opts) {
     this.host = opts.host;
-    this.client_id = opts.apiKey;
-    this.client_secret = opts.secret;
-    this.code = opts.code;
+    this.apiKey = opts.apiKey;
+    this.secret = opts.secret;
+    this.shop = opts.shop;
     this.access_token = opts.access_token;
+    this.scopes = opts.scopes;
   }
 
   update(opts) {
-    Object.assign(this, opts);
+    merge(this, opts);
   }
 }

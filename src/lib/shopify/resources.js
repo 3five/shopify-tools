@@ -1,8 +1,8 @@
 import Client from './client'
 import * as resources   from './resources/index'
 
-export default class ShopifyResources {  
-  
+export default class ShopifyResources {
+
   defaults = {}
 
   constructor(options) {
@@ -11,7 +11,7 @@ export default class ShopifyResources {
       throw new Error('Must provide a client or session.')
     }
 
-    this.client = !opts.client 
+    this.client = !opts.client
       ? new Client({ session: opts.session })
       : opts.client
 
@@ -23,10 +23,6 @@ export default class ShopifyResources {
       let opts = { client: this.client };
       let Resource = resources[r];
       this[r] = new Resource(opts);
-      // if (this[r].metafields) {
-      //   opts.resourcePrefix = `${this[r].resourceName}/`
-      //   this[r].Metafields = new resources.Metafields()
-      // }
     })
   }
 }
