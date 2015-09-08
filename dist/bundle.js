@@ -2216,6 +2216,7 @@
 
 	var defaults = {
 	  resources: true,
+	  anonymousInstall: false,
 	  autoInstall: true,
 	  applicationBase: '/',
 	  applicationInstall: '/install',
@@ -2258,9 +2259,19 @@
 	      var installingCallback = (0, _lodash.startsWith)(pUrl.pathname, o.applicationInstallCallback);
 	      var withinApp = (0, _lodash.startsWith)(pUrl.pathname, o.applicationBase);
 	      var session = null;
+	      var verified = false;
 
 	      if (installing || installingCallback || withinApp) {
-	        if (!this.verifyRequest(req.query)) {
+
+	        if (installing && o.anonymousInstall) {
+	          verified = true;
+	        }
+
+	        if (!verified) {
+	          verified = this.verifyRequest(req.query);
+	        }
+
+	        if (!verified) {
 	          return res.sendStatus(401);
 	        }
 
@@ -2286,7 +2297,7 @@
 	          return this.install(req, res, next);
 	        }
 
-	        return o.willAuthenticate(shop, function (tenant) {
+	        return o.willAuthenticate(req, res, function (tenant) {
 	          if (!tenant || !tenant.access_token) {
 	            if (o.autoInstall) {
 	              return res.redirect(o.applicationInstall + pUrl.search);
@@ -2317,8 +2328,12 @@
 	      var nonce = _client$buildInstallUrl.nonce;
 
 	      if (uri) {
-	        return o.willInstall(shop, nonce, function () {
-	          res.redirect(uri);
+	        return o.willInstall(shop, nonce, function (installed) {
+	          if (installed === false) {
+	            o.routes.error ? res.redirect(o.routes.error) : res.sendStatus(500);
+	          } else {
+	            res.redirect(uri);
+	          }
 	        });
 	      }
 
@@ -2336,7 +2351,7 @@
 	      var code = _req$query.code;
 	      var state = _req$query.state;
 
-	      o.willAuthenticate(shop, function (tenant) {
+	      o.willAuthenticate(req, res, function (tenant) {
 	        if (tenant.nonce === state) {
 	          return client.getAccessToken(code).then(function (_ref) {
 	            var access_token = _ref.access_token;

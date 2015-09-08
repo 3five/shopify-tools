@@ -17,6 +17,7 @@ const noop = function() {}
 
 const defaults = {
   resources: true,
+  anonymousInstall: false,
   autoInstall: true,
   applicationBase: '/',
   applicationInstall: '/install',
@@ -54,9 +55,19 @@ export default class ShopifyAuthMiddleware {
     const installingCallback = startsWith(pUrl.pathname, o.applicationInstallCallback)
     const withinApp = startsWith(pUrl.pathname, o.applicationBase)
     let session = null
+    let verified = false;
 
     if (installing || installingCallback || withinApp) {
-      if (!this.verifyRequest(req.query)) {
+
+      if (installing && o.anonymousInstall) {
+        verified = true;
+      }
+
+      if (!verified) {
+        verified = this.verifyRequest(req.query);
+      }
+
+      if (!verified) {
         return res.sendStatus(401)
       }
 
@@ -82,7 +93,7 @@ export default class ShopifyAuthMiddleware {
         return this.install(req, res, next)
       }
 
-      return o.willAuthenticate(shop, (tenant)=> {
+      return o.willAuthenticate(req, res, (tenant)=> {
         if (!tenant || !tenant.access_token) {
           if (o.autoInstall) {
             return res.redirect(o.applicationInstall + pUrl.search);
@@ -111,8 +122,12 @@ export default class ShopifyAuthMiddleware {
     )
 
     if (uri) {
-      return o.willInstall(shop, nonce, ()=> {
-        res.redirect(uri)
+      return o.willInstall(shop, nonce, (installed)=> {
+        if (installed === false) {
+          o.routes.error ? res.redirect(o.routes.error) : res.sendStatus(500)
+        } else {
+          res.redirect(uri)
+        }
       })
     }
 
@@ -123,7 +138,7 @@ export default class ShopifyAuthMiddleware {
     const o = this.opts
     const { client } = res.locals
     const { shop, code, state } = req.query
-    o.willAuthenticate(shop, (tenant)=> {
+    o.willAuthenticate(req, res, (tenant)=> {
       if (tenant.nonce === state) {
         return client.getAccessToken(code).then(({ access_token })=> {
           o.didInstall(shop, code, access_token, ()=> {
