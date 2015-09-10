@@ -7,6 +7,10 @@ export class PrivateSession {
     this.secret = opts.secret;
     this.shop = opts.shop;
   }
+
+  update(opts) {
+    merge(this, opts);
+  }
 }
 
 export class OAuthSession {

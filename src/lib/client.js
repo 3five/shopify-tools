@@ -104,6 +104,10 @@ export default class ShopifyClient {
       code: code
     })
     return this.makeRequest(request)
+      .then((resp)=> {
+        this.session.update(resp)
+        return resp;
+      })
   }
 
   makeRequest(request) {
