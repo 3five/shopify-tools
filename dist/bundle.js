@@ -230,7 +230,6 @@
 	      var _this = this;
 
 	      var url = this.buildUrl('oauth/access_token');
-	      console.log(url);
 	      var request = _superagent2['default'].post(url);
 	      request.query({
 	        client_id: this.session.apiKey,
@@ -716,7 +715,6 @@
 	  }, {
 	    key: 'build',
 	    value: function build(id, data) {
-
 	      if (!data && typeof id !== 'number') {
 	        data = id;
 	      }
@@ -771,7 +769,7 @@
 	          var nCalls = Math.ceil(count / COLLECTION_LIMIT);
 	          var calls = [];
 	          for (var i = 1; i <= nCalls; i++) {
-	            var cOpts = (0, _lodash.extend)({}, opts, { limit: 250, page: 1 });
+	            var cOpts = (0, _lodash.extend)({}, opts, { limit: 250, page: i });
 	            calls.push(_this3.findAll(cOpts));
 	          }
 	          return Promise.all(calls).then(function (results) {
@@ -788,7 +786,6 @@
 	    key: 'findOne',
 	    value: function findOne(id, opts) {
 	      var resource = this._getUrl();
-	      // console.log(id, opts)
 
 	      if (this.singular && typeof id !== 'number') {
 	        opts = id;
@@ -2421,8 +2418,11 @@
 	          var access_token = _ref.access_token;
 
 	          o.didInstall(shop, code, access_token, function () {
-	            res.redirect(_this2.buildAppUrl(shop) + o.routes.didInstall);
+	            var query = req._parsedUrl.search;
+	            var redirect = _this2.buildAppUrl(shop, o.routes.didInstall || o.applicationBase) + query;
+	            res.redirect(redirect);
 	          });
+	          return null;
 	        }).then(_this2.postInstall.bind(_this2, res, shop));
 	      });
 	    }
@@ -2455,12 +2455,12 @@
 	    }
 	  }, {
 	    key: 'buildAppUrl',
-	    value: function buildAppUrl(shop) {
+	    value: function buildAppUrl(shop, pathname) {
 	      var handle = this.opts.listingHandle || this.opts.apiKey;
 	      return _url2['default'].format({
 	        protocol: 'https',
 	        host: shop,
-	        pathname: '/admin/apps/' + handle
+	        pathname: '/admin/apps/' + handle + (pathname || '')
 	      });
 	    }
 	  }, {
