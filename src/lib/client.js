@@ -96,7 +96,6 @@ export default class ShopifyClient {
 
   getAccessToken(code) {
     let url = this.buildUrl('oauth/access_token');
-    console.log(url)
     let request = agent.post(url)
     request.query({
       client_id: this.session.apiKey,

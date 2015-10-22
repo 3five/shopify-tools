@@ -169,8 +169,11 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
       return client.getAccessToken(code)
         .then(({ access_token })=> {
           o.didInstall(shop, code, access_token, ()=> {
-            res.redirect(this.buildAppUrl(shop) + o.routes.didInstall)
+            let query = req._parsedUrl.search;
+            let redirect = this.buildAppUrl(shop, o.routes.didInstall || o.applicationBase) + query;
+            res.redirect(redirect);
           })
+          return null;
         })
         .then(this.postInstall.bind(this, res, shop))
     })
@@ -200,12 +203,12 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
     return Promise.all(calls)
   }
 
-  buildAppUrl(shop) {
+  buildAppUrl(shop, pathname) {
     const handle = this.opts.listingHandle || this.opts.apiKey
     return url.format({
       protocol: 'https',
       host: shop,
-      pathname: `/admin/apps/${handle}`
+      pathname: `/admin/apps/${handle}${pathname || ''}`
     })
   }
 
@@ -213,7 +216,7 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
     return url.format({
       protocol: 'https',
       host: process.env.APP_HOST,
-      pathname,
+      pathname: pathname,
     })
   }
 

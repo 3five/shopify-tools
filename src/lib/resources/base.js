@@ -52,7 +52,6 @@ export default class Resource {
   }
 
   build(id, data) {
-
     if (!data && typeof id !== 'number') {
       data = id;
     }
@@ -104,7 +103,7 @@ export default class Resource {
         let nCalls = Math.ceil(count / COLLECTION_LIMIT)
         let calls = [];
         for (let i = 1; i <= nCalls; i++) {
-          let cOpts = extend({}, opts, { limit: 250, page: 1 })
+          let cOpts = extend({}, opts, { limit: 250, page: i })
           calls.push(this.findAll(cOpts))
         }
         return Promise.all(calls).then((results)=> {
@@ -120,7 +119,6 @@ export default class Resource {
 
   findOne(id, opts) {
     let resource = this._getUrl();
-    // console.log(id, opts)
 
     if (this.singular && typeof id !== 'number') {
       opts = id;
