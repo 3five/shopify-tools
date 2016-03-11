@@ -247,7 +247,8 @@
 	      return new Promise(function (resolve, reject) {
 	        request.end(function (err, res) {
 	          if (err) {
-	            reject(res.body || err);
+	            err.response = res;
+	            reject(err);
 	          } else {
 	            resolve(res.body);
 	          }
