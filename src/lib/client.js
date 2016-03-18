@@ -2,8 +2,11 @@ import url              from 'url'
 import uuid             from 'uuid'
 import agent            from 'superagent'
 import { OAuthSession } from './session'
+import RateLimiter      from './rate-limiter'
 
 export default class ShopifyClient {
+
+  static buckets = {}
 
   methods = ['get', 'post', 'put', 'del']
 
@@ -25,10 +28,18 @@ export default class ShopifyClient {
     }
 
     this.session = opts.session;
+    this.queue = ShopifyClient.getQueue(this.session._host)
 
-    for(let method of this.methods) {
+    for (let method of this.methods) {
       this[method] = this.genericMethod.bind(this, method)
     }
+  }
+
+  static getQueue(host) {
+    if (!ShopifyClient.buckets[host]) {
+      ShopifyClient.buckets[host] = new RateLimiter()
+    }
+    return ShopifyClient.buckets[host]
   }
 
   genericMethod(method, resource, opts) {
@@ -43,7 +54,7 @@ export default class ShopifyClient {
       host: this.session.shop,
       pathname: '/admin/oauth/authorize',
       query: {
-        client_id: this.session.apiKey,
+        ShopifyClient_id: this.session.apiKey,
         scope: this.session.scopes.join(','),
         redirect_uri: url.format({
           protocol: 'https',
@@ -98,8 +109,8 @@ export default class ShopifyClient {
     let url = this.buildUrl('oauth/access_token');
     let request = agent.post(url)
     request.query({
-      client_id: this.session.apiKey,
-      client_secret: this.session.secret,
+      ShopifyClient_id: this.session.apiKey,
+      ShopifyClient_secret: this.session.secret,
       code: code
     })
     return this.makeRequest(request)
@@ -108,17 +119,16 @@ export default class ShopifyClient {
         return resp;
       })
   }
-
+  
   makeRequest(request) {
     return new Promise((resolve, reject)=> {
-      request.end((err, res)=> {
+      this.queue.push(request, 5, (err, res)=> {
         if (err) {
-          err.response = res;
-          reject(err);
+          reject(err)
         } else {
-          resolve(res.body);
+          resolve(res.body)
         }
-      });
+      })
     })
   }
 

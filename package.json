@@ -1,6 +1,6 @@
 {
   "name": "shopify-tools",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "",
   "main": "dist/bundle.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "webpack": "^1.11.0"
   },
   "dependencies": {
+    "async": "^1.5.2",
     "express": "^4.13.3",
     "inflection": "^1.7.1",
     "lodash": "^3.10.1",

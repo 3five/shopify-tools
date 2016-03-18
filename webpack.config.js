@@ -17,6 +17,7 @@ module.exports = {
         lodash: true,
         path: true,
         uuid: true,
+        async: true
       }
     ],
     node: {
