@@ -28,7 +28,7 @@ export default class ShopifyClient {
     }
 
     this.session = opts.session;
-    this.queue = ShopifyClient.getQueue(this.session._host)
+    this.queue = ShopifyClient.getQueue(this.session.host)
 
     for (let method of this.methods) {
       this[method] = this.genericMethod.bind(this, method)
@@ -77,7 +77,7 @@ export default class ShopifyClient {
     };
 
     if (!this.oauth) {
-      reqUrlFormat.auth = `${this.session.apiKey}:${this.session.secret}`;
+      reqUrlFormat.auth = `${this.session.apiKey}:${this.session.password}`;
     }
 
     return url.format(reqUrlFormat);

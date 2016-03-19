@@ -4,6 +4,7 @@ export class PrivateSession {
   constructor(opts) {
     this.host = opts.host;
     this.apiKey = opts.apiKey;
+    this.password = opts.password;
     this.secret = opts.secret;
     this.shop = opts.shop;
   }
