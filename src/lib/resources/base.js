@@ -73,7 +73,7 @@ export default class Resource {
   count(opts) {
     let resource = `${this._getUrl()}/count`;
     let payload = { params: opts };
-    return this.client.get(resource)
+    return this.client.get(resource, payload)
       .then(extractResource('count'))
   }
 
@@ -99,7 +99,7 @@ export default class Resource {
 
     if (opts && opts.complete) {
       delete opts.complete
-      return this.count().then((count)=> {
+      return this.count(opts).then((count)=> {
         let nCalls = Math.ceil(count / COLLECTION_LIMIT)
         let calls = [];
         for (let i = 1; i <= nCalls; i++) {

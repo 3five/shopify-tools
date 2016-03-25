@@ -974,7 +974,7 @@
 	    value: function count(opts) {
 	      var resource = this._getUrl() + '/count';
 	      var payload = { params: opts };
-	      return this.client.get(resource).then(extractResource('count'));
+	      return this.client.get(resource, payload).then(extractResource('count'));
 	    }
 	  }, {
 	    key: 'create',
@@ -1002,7 +1002,7 @@
 
 	      if (opts && opts.complete) {
 	        delete opts.complete;
-	        return this.count().then(function (count) {
+	        return this.count(opts).then(function (count) {
 	          var nCalls = Math.ceil(count / COLLECTION_LIMIT);
 	          var calls = [];
 	          for (var i = 1; i <= nCalls; i++) {
