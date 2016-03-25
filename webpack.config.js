@@ -28,11 +28,7 @@ module.exports = {
         {
           test: /\.js$/,
           exclude: /(node_modules|bower_components)/,
-          loader: 'babel',
-          query: {
-            // optional: ['runtime'],
-            stage: 0
-          }
+          loader: 'babel'
         }
       ]
     }
