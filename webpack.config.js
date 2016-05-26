@@ -2,8 +2,8 @@ module.exports = {
     context: __dirname + "/src",
     entry: "./lib/index",
     output: {
-        path: __dirname + "/dist",
-        filename: "bundle.js",
+        path: __dirname + "/lib",
+        filename: "index.js",
         libraryTarget: 'commonjs',
     },
     externals: [
