@@ -143,7 +143,7 @@ export default class Resource {
   update(id, data, opts) {
     let resource = `${this._getUrl()}`;
 
-    if (id && !this.resourcePrefix) {
+    if (id && !this.resourceSuffix) {
       resource += `/${id}`
     }
 
@@ -159,7 +159,7 @@ export default class Resource {
   remove(id, opts) {
     let resource = `${this._getUrl()}`;
 
-    if (id && !this.resourcePrefix) {
+    if (id && !this.resourceSuffix) {
       resource += `/${id}`
     }
 
