@@ -129,7 +129,6 @@ export default class Resource {
       throw new ArgumentError()
     }
 
-
     if (id) {
       resource += `/${id}`;
     }
@@ -144,7 +143,7 @@ export default class Resource {
   update(id, data, opts) {
     let resource = `${this._getUrl()}`;
 
-    if (id) {
+    if (id && !this.resouceSuffix) {
       resource += `/${id}`
     }
 
@@ -158,7 +157,12 @@ export default class Resource {
   }
 
   remove(id, opts) {
-    let resource = `${this._getUrl()}/${id}`;
+    let resource = `${this._getUrl()}`;
+
+    if (id && !this.resouceSuffix) {
+      resource += `/${id}`
+    }
+
     let payload = { params: opts };
     return this.client.del(resource, payload)
       .then(()=> {
