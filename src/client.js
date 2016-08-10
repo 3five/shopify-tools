@@ -6,15 +6,15 @@ import RateLimiter      from './rate-limiter'
 
 export default class ShopifyClient {
 
-  static buckets = {}
+  static buckets = {};
 
-  methods = ['get', 'post', 'put', 'del']
+  methods = ['get', 'post', 'put', 'del'];
 
-  oauth = false
+  oauth = false;
 
   defaults = {
     resources: true
-  }
+  };
 
   constructor(options) {
     let opts = Object.assign({}, this.defaults, options)
@@ -44,7 +44,21 @@ export default class ShopifyClient {
 
   genericMethod(method, resource, opts) {
     let request = this.buildRequest(method, resource, opts);
-    return this.makeRequest(request);
+    return this.makeRequest(request)
+      .catch(err => {
+        let ret = { 
+          originalError: err,
+          error: true
+        }
+        if (err.response) {
+          if (err.response.body && err.response.body.errors) {
+            let errs = err.response.body.errors
+            ret.messages = Array.isArray(errs) ? errs : [errs]
+          }
+          ret.status = err.response.status
+        }
+        return Promise.reject(ret)
+      })
   }
 
   buildInstallUrl(redirectUri) {

@@ -1,35 +1,22 @@
+var externals = require('webpack-node-externals')
+var path = require('path')
+
 module.exports = {
-    context: __dirname + "/src",
-    entry: "./lib/index",
-    output: {
-        path: __dirname + "/lib",
-        filename: "index.js",
-        libraryTarget: 'commonjs',
-    },
-    externals: [
-      {
-        inflection: true,
-        superagent: true,
-        crypto: true,
-        url: true,
-        express: true,
-        querystring: true,
-        lodash: true,
-        path: true,
-        uuid: true,
-        async: true
-      }
-    ],
-    node: {
-      process: false,
-    },
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /(node_modules|bower_components)/,
-          loader: 'babel'
-        }
-      ]
-    }
+  context: path.resolve('src'),
+  entry: ['./index'],
+  output: {
+      path: path.resolve('lib'),
+      filename: 'index.js',
+      libraryTarget: 'commonjs'
+  },
+  module: {
+    loaders: [
+      { test: /\.jsx?$/, include: path.resolve('src'), loader: 'babel-loader' }
+    ]
+  },
+  externals: [externals()],
+  target: 'node',
+  node: {
+    process: false,
+  }
 }
