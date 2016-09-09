@@ -123,8 +123,8 @@ export default class ShopifyClient {
     let url = this.buildUrl('oauth/access_token');
     let request = agent.post(url)
     request.query({
-      ShopifyClient_id: this.session.apiKey,
-      ShopifyClient_secret: this.session.secret,
+      client_id: this.session.apiKey,
+      client_secret: this.session.secret,
       code: code
     })
     return this.makeRequest(request)

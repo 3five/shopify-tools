@@ -21,10 +21,12 @@ const defaults = {
   resources: true,
   anonymousInstall: false,
   autoInstall: true,
+  anonymousPages: true,
   anonymousWebhooks: true,
   applicationBase: '/',
-  applicationInstall: '/install',
-  applicationInstallCallback: '/install/callback',
+  applicationEntrypoint: '/',
+  applicationInstall: '/auth/shopify',
+  applicationInstallCallback: '/auth/shopify/callback',
   routes: {
     didInstall: '/'
   },
@@ -61,19 +63,14 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
     const o = this.opts
     const pUrl = req._parsedUrl
     const { shop } = req.query
+    const entrypoint = startsWith(pUrl.pathname, o.applicationEntrypoint)
     const installing = startsWith(pUrl.pathname, o.applicationInstall)
-    const installingCallback = startsWith(pUrl.pathname, o.applicationInstallCallback)
-    const withinApp = startsWith(pUrl.pathname, o.applicationBase)
+    const installingCallback = pUrl.pathname === o.applicationInstallCallback
     const webhook = startsWith(pUrl.pathname, o.webhooksBase)
     let session = null
     let verified = false;
 
-    if (installing || installingCallback || withinApp || webhook) {
-
-      if (installing && o.anonymousInstall) {
-        verified = true;
-      }
-
+    if (entrypoint || installing || installingCallback || webhook) {
       if (webhook) {
         verified = this.verifyWebhookRequest(req)
         const shop = req.headers['x-shopify-shop-domain']
@@ -93,7 +90,7 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
         verified = this.verifyRequest(req);
       }
 
-      if (!verified) {
+      if (!verified && !o.anonymousPages) {
         return res.sendStatus(401)
       }
 
@@ -115,16 +112,12 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
         return this.installCallback(req, res, next);
       }
 
-      if (installing) {
-        return this.install(req, res, next)
-      }
-
       return o.willAuthenticate(req, res, (tenant)=> {
         if (!tenant || !tenant.access_token) {
-          if (o.autoInstall) {
-            return res.redirect(o.applicationInstall + pUrl.search);
+          if (installing && o.autoInstall) {
+            return this.install(req, res, next)
           }
-          return next();
+          return next()
         }
 
         session.update({
@@ -163,6 +156,7 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
     const { client } = res.locals
     const { shop, code, state } = req.query
     o.willAuthenticate(req, res, (tenant)=> {
+      if (!tenant) { tenant = {} }
       if (tenant.nonce !== state) {
         return res.sendStatus(401)
       }
@@ -174,6 +168,10 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
             res.redirect(redirect);
           })
           return null;
+        })
+        .catch(err => {
+          console.log(err)
+          res.sendStatus(500)
         })
         .then(this.postInstall.bind(this, res, shop))
     })
@@ -250,7 +248,9 @@ export default class ShopifyAuthMiddleware extends EventEmitter {
 
     hash.update(message);
 
-    return (hmac === hash.digest('hex'));
+    const valid = (hmac === hash.digest('hex'));
+
+    return valid;
   }
 
   bodyParserVerify(req, res, buf, encoding) {
