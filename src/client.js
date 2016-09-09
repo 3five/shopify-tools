@@ -68,7 +68,7 @@ export default class ShopifyClient {
       host: this.session.shop,
       pathname: '/admin/oauth/authorize',
       query: {
-        ShopifyClient_id: this.session.apiKey,
+        client_id: this.session.apiKey,
         scope: this.session.scopes.join(','),
         redirect_uri: url.format({
           protocol: 'https',
