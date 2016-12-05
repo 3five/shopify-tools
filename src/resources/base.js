@@ -96,19 +96,21 @@ export default class Resource {
 
   findAll(opts) {
     let resource = this._getUrl();
-
     if (opts && opts.complete) {
       delete opts.complete
-      return this.count(opts).then((count)=> {
+      return this.count(opts).then(async (count)=> {
         let nCalls = Math.ceil(count / COLLECTION_LIMIT)
         let calls = [];
-        for (let i = 0; i <= nCalls; i++) {
+        console.log('making ', nCalls, ' calls')
+        let results = []
+        for (let i = 1; i <= nCalls; i++) {
           let cOpts = extend({}, opts, { limit: 250, page: i })
-          calls.push(this.findAll(cOpts))
+          console.log('call ', i)
+          await delay(500)
+          let resp = await this.findAll(cOpts)
+          results = results.concat(resp)
         }
-        return Promise.all(calls).then((results)=> {
-          return [].concat(...results)
-        })
+        return results
       })
     }
 
@@ -170,6 +172,12 @@ export default class Resource {
       })
   }
 
+}
+
+function delay(ms) {
+  return new Promise((resolve, reject)=> {
+    setTimeout(x => resolve(), ms)
+  })
 }
 
 function extractResource(resource) {

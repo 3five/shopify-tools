@@ -6,7 +6,7 @@ import Bucket from './bucket'
  */
 export default class RateLimiter {
 
-  static BURST_RATE = 40;
+  static BURST_RATE = 20;
   static FILL_RATE = 2;
 
   constructor() {
