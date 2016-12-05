@@ -102,7 +102,7 @@ export default class Resource {
       return this.count(opts).then((count)=> {
         let nCalls = Math.ceil(count / COLLECTION_LIMIT)
         let calls = [];
-        for (let i = 1; i <= nCalls; i++) {
+        for (let i = 0; i <= nCalls; i++) {
           let cOpts = extend({}, opts, { limit: 250, page: i })
           calls.push(this.findAll(cOpts))
         }
